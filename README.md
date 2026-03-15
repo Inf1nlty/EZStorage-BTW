@@ -1,34 +1,40 @@
-# XP Tome for Better Than Wolves Community Edition (3.0.x)
+# EZStorage for Better Than Wolves Community Edition (3.0.x)
 
-This mod adds a special XP Tome book that allows you to store and retrieve your experience points in Better Than Wolves Community Edition.  
-Perfect for keeping your XP safe or moving it between locations!
+## Description
 
----
+Simple Storage (former EZStorage) introduces an early-game storage system that scales and evolves as players progress, while keeping the vanilla flair. Want to put 100k Cobblestone in 1 slot? No problem. The blocks in the mod can add a crafting grid, additional storage, and more. Also includes integration into some mods for easier crafting or additional features!
 
-## Features
+## Blocks & Items
 
-- **XP Tome** item that can store up to 30 levels of XP (825 XP points).
-- Deposit or withdraw XP at any time.
-- New `/exp` command to check your current XP.
-- Right-click a Dragon Vessel with an empty XP Tome to permanently increase the vessel’s XP capacity by 1000.
-- **Crafting:** To craft an XP Tome, place an Ancient Manuscript onto a Dragon Vessel, then throw a Soul Urn onto the vessel.
+- **Storage Core**
+    - This is the core of your storage system
+    - Click on this block to open the GUI (search box included), and add adjacent blocks to expand
+    - Each system can only have 1 Storage Core
+    - This block can only be broken if it contains no items
+- **Storage Box**
+    - Tier 1 storage add-on wich increases the storage capacity of the Storage Core by a small amount
+- **Condensed Storage Box**
+    - Tier 2 storage add-on
+- **Hyper Storage Box**
+    - Tier 3 storage add-on
+- **Proxy Port**
+    - Expose the storage inventory to hoppers, conduits or maschines
+- **Crafting Box**
+    - This adds a crafting grid to the GUI of your Storage Core (compatible with NEI + clicking for easy crafting from the internal inventory).It also has the same material grading as MITE's workbench.
+- **Portable Storage Panel**
+    - This adds a small item that features a wood panel with wireless access to your storage core. It's tier can be upgraded and a crafting grid can also be added.
+    - Upgrade by putting in crafting grid together with one redstone block and the upgrade item (ender eye, ender pearl, nether star, crafting box)
+    - No need for chunkloading the target storage core, it works without!
 
----
+## Remarks
 
-## Requirements
+This mod is intented to be a compact storage solution, and not an automated storage network. As of right now, I'm not going to include any features like filtered output, network cables, external monitors, or anything else remeniscent of Applied Energistics. If you have an idea how such features would fit nicely in vanilla worlds, feel free to open an issue for discussion.
 
-- Minecraft with [Better Than Wolves Community Edition 3.x](https://github.com/BetterWithMods/BetterThanWolves-CommunityEdition)
+As from my side, this mod is feature-completed. I'll try fixing bugs as they were found or make improvements where possible. However, any contribution in form of troubleshooting or pull requests for bugfixes, improvements, mod compat, or new features are welcome at any time.
 
----
+## Contribution
 
-## How to Install
-
-1. [Download the latest release (.jar)](https://github.com/Inf1nlty/XPTome-BTW/releases/latest)
-2. Place it into your `mods` folder
-3. Start Minecraft with BTW Community Edition
-
----
+Feel free to open PRs for features, improvements, or compatibility fixes. I'm maintaining this at minimal effort for use on my server/modpack.
 
 ## Credits
-
-- Ported from the original mod by [bl4ckscor3/XP-Tome](https://github.com/bl4ckscor3/XP-Tome)
+This mod is a port of [EZStorage](https://github.com/LITW-Refined/EZStorage) by LITW-Refined. Thanks to LITW-Refined for the original work.
