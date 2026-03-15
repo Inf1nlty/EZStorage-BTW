@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "ezstorage",
+  "version": "${version}",
+  "name": "Simple Storage",
+  "depends": {
+    "fabricloader": ">=0.18.2",
+    "minecraft": "1.6.4",
+    "manylib": ">=2.3.0"
+  },
+  "description": "A very simple storage system without energy or complex structures.",
+  "icon": "assets/ezstorage/icon.png",
+  "license": "LGPL-3.0",
+  "authors": [
+    "zerofall",
+    "Pilzinsel64",
+    "Inf1nlty"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Inf1nlty/EZStorage-BTW",
+    "issues": "https://github.com/Inf1nlty/EZStorage-BTW/issues"
+  },
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+    ],
+    "btw:addon": [
+      "com.zerofall.ezstorage.EZStorageAddon"
+    ],
+    "modmenu": [
+      "com.zerofall.ezstorage.compat.ModMenuImpl"
+    ],
+    "emi": [
+      "com.zerofall.ezstorage.compat.EZEmiPlugin"
+    ]
+  },
+  "mixins": [
+    "ezstorage.mixins.json"
+  ],
+  "accessWidener": "ezstorage.accesswidener"
+}
