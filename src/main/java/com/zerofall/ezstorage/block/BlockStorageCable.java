@@ -19,7 +19,7 @@ public class BlockStorageCable extends StorageMultiblock {
 
     public BlockStorageCable(int id) {
         super(id, "storage_cable", Material.wood);
-        this.setTextureName(Reference.MOD_ID + ":inventory_cable");
+        this.setTextureName(Reference.MOD_ID + ":storage_cable");
     }
 
     @Override

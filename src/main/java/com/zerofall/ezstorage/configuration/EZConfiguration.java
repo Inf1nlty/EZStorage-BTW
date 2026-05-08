@@ -17,11 +17,11 @@ import java.util.List;
 
 public class EZConfiguration extends SimpleConfigs {
 
-    public static final ConfigInteger basicCapacity = new ConfigInteger(Reference.MOD_ID + ".basicCapacity", 400, 1, Integer.MAX_VALUE, Reference.MOD_ID + ".basicCapacity");
+    public static final ConfigInteger basicCapacity = new ConfigInteger(Reference.MOD_ID + ".basicCapacity", 1600, 1, Integer.MAX_VALUE, Reference.MOD_ID + ".basicCapacity");
 
-    public static final ConfigInteger condensedCapacity = new ConfigInteger(Reference.MOD_ID + ".condensedCapacity", 4000, 1, Integer.MAX_VALUE, Reference.MOD_ID + ".condensedCapacity");
+    public static final ConfigInteger condensedCapacity = new ConfigInteger(Reference.MOD_ID + ".condensedCapacity", 16000, 1, Integer.MAX_VALUE, Reference.MOD_ID + ".condensedCapacity");
 
-    public static final ConfigInteger hyperCapacity = new ConfigInteger(Reference.MOD_ID + ".hyperCapacity", 400000, 1, Integer.MAX_VALUE, Reference.MOD_ID + ".hyperCapacity");
+    public static final ConfigInteger hyperCapacity = new ConfigInteger(Reference.MOD_ID + ".hyperCapacity", 160000, 1, Integer.MAX_VALUE, Reference.MOD_ID + ".hyperCapacity");
 
     public static final ConfigInteger maxItemTypes = new ConfigInteger(Reference.MOD_ID + ".maxItemTypes", 0, 0, Integer.MAX_VALUE, Reference.MOD_ID + ".maxItemTypes");
 

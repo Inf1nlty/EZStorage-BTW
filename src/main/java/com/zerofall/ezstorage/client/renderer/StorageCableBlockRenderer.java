@@ -2,7 +2,6 @@ package com.zerofall.ezstorage.client.renderer;
 
 import com.zerofall.ezstorage.block.BlockStorageCable;
 import net.minecraft.src.Block;
-import net.minecraft.src.EntityRenderer;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.Icon;
 import net.minecraft.src.RenderBlocks;
@@ -14,59 +13,43 @@ public final class StorageCableBlockRenderer {
     private StorageCableBlockRenderer() {}
 
     public static boolean renderWorldBlock(RenderBlocks renderer, Block block, IBlockAccess world, int x, int y, int z) {
-
-        Icon icon = block.getIcon(0, world.getBlockMetadata(x, y, z));
-
-        int color = block.colorMultiplier(world, x, y, z);
-        float red = (float) (color >> 16 & 255) / 255.0F;
-        float green = (float) (color >> 8 & 255) / 255.0F;
-        float blue = (float) (color & 255) / 255.0F;
-
-        if (EntityRenderer.anaglyphEnable) {
-            float grayscaleRed = (red * 30.0F + green * 59.0F + blue * 11.0F) / 100.0F;
-            float grayscaleGreen = (red * 30.0F + green * 70.0F) / 100.0F;
-            float grayscaleBlue = (red * 30.0F + blue * 70.0F) / 100.0F;
-            red = grayscaleRed;
-            green = grayscaleGreen;
-            blue = grayscaleBlue;
-        }
+        block.currentBlockRenderer = renderer;
 
         renderSegment(renderer, block, x, y, z, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MIN,
-                BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, icon, red, green, blue);
+                BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX);
 
         if (BlockStorageCable.canConnectToBlock(world, x, y - 1, z)) {
             renderSegment(renderer, block, x, y, z, BlockStorageCable.CORE_MIN, 0.0F, BlockStorageCable.CORE_MIN,
-                    BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MAX, icon, red, green, blue);
+                    BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MAX);
         }
         if (BlockStorageCable.canConnectToBlock(world, x, y + 1, z)) {
             renderSegment(renderer, block, x, y, z, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MIN,
-                    BlockStorageCable.CORE_MAX, 1.0F, BlockStorageCable.CORE_MAX, icon, red, green, blue);
+                    BlockStorageCable.CORE_MAX, 1.0F, BlockStorageCable.CORE_MAX);
         }
         if (BlockStorageCable.canConnectToBlock(world, x, y, z - 1)) {
             renderSegment(renderer, block, x, y, z, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MIN, 0.0F,
-                    BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MIN, icon, red, green, blue);
+                    BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MIN);
         }
         if (BlockStorageCable.canConnectToBlock(world, x, y, z + 1)) {
             renderSegment(renderer, block, x, y, z, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MAX,
-                    BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, 1.0F, icon, red, green, blue);
+                    BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, 1.0F);
         }
         if (BlockStorageCable.canConnectToBlock(world, x - 1, y, z)) {
             renderSegment(renderer, block, x, y, z, 0.0F, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MIN,
-                    BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, icon, red, green, blue);
+                    BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX);
         }
         if (BlockStorageCable.canConnectToBlock(world, x + 1, y, z)) {
             renderSegment(renderer, block, x, y, z, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MIN, BlockStorageCable.CORE_MIN,
-                    1.0F, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX, icon, red, green, blue);
+                    1.0F, BlockStorageCable.CORE_MAX, BlockStorageCable.CORE_MAX);
         }
 
         return true;
     }
 
     private static void renderSegment(RenderBlocks renderer, Block block, int x, int y, int z,
-                                      float minX, float minY, float minZ, float maxX, float maxY, float maxZ,
-                                      Icon icon, float red, float green, float blue) {
+                                      float minX, float minY, float minZ, float maxX, float maxY, float maxZ) {
         renderer.setRenderBounds(minX, minY, minZ, maxX, maxY, maxZ);
-        renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, red, green, blue);
+        renderer.renderStandardBlock(block, x, y, z);
     }
 
     public static void renderInventoryBlock(RenderBlocks renderer, Block block, int metadata) {
